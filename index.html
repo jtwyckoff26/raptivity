@@ -10,7 +10,7 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 console.log("urlParams: ", urlParams)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
-                if (urlParams.indexOf("video") > 0 ) {
+                if (urlParams.includes('video')) {
                     const myParam = urlParams.get('video');
                     const baseString = "www.youtube.com/watch?v=";
                 }
