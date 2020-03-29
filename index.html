@@ -7,16 +7,18 @@
     <body>
         <script type="text/javascript">
             window.onload = function() {
+                let myParam;
+                let baseString;
                 const urlParams = new URLSearchParams(window.location.search);
                 console.log("urlParams: ", urlParams)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
                 if (urlParams.includes('video')) {
-                    const myParam = urlParams.get('video');
-                    const baseString = "www.youtube.com/watch?v=";
+                    myParam = urlParams.get('video');
+                    baseString = "www.youtube.com/watch?v=";
                 }
                 else {
-                    const myParam = "";
-                    const baseString = "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw";
+                    myParam = "";
+                    baseString = "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw";
                 }
 
                 var desktopFallback = `https://${baseString}${myParam}`,
