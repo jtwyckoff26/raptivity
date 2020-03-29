@@ -8,8 +8,14 @@
         <script type="text/javascript">
             window.onload = function() {
                 const urlParams = new URLSearchParams(window.location.search);
-                const myParam = urlParams.get('video') ? urlParams.get('video') : "";
-                const baseString = myParam === null ? "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw" : "www.youtube.com/watch?v=";
+                if (urlParams.indexOf("video") > 0 ) {
+                    const myParam = urlParams.get('video');
+                    const baseString = "www.youtube.com/watch?v=";
+                }
+                else {
+                    const myParam = "";
+                    const baseString = "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw";
+                }
 
                 var desktopFallback = `https://${baseString}${myParam}`,
                 mobileFallback = `https://${baseString}${myParam}`,
