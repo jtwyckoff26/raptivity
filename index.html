@@ -9,10 +9,12 @@
             window.onload = function() {
                 let myParam;
                 let baseString;
+                let searchString;
+                searchString = window.location.search;
                 const urlParams = new URLSearchParams(window.location.search);
-                console.log("urlParams: ", urlParams)
+                console.log("urlParams: ", window.location.search)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
-                if (urlParams.includes('video')) {
+                if (searchString.includes('video')) {
                     myParam = urlParams.get('video');
                     baseString = "www.youtube.com/watch?v=";
                 }
