@@ -8,11 +8,12 @@
         <script type="text/javascript">
             window.onload = function() {
                 const urlParams = new URLSearchParams(window.location.search);
-                const myParam = urlParams.get('video');
+                const myParam = urlParams.get('video') ? urlParams.get('video') : "";
+                const baseString = myParam === "" ? "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw" : "www.youtube.com/watch?v=";
 
-                var desktopFallback = `https://www.youtube.com/watch?v=${myParam}`,
-                mobileFallback = `https://www.youtube.com/watch?v=${myParam}`,
-                app = `vnd.youtube://www.youtube.com/watch?v=${myParam}`;
+                var desktopFallback = `https://${baseString}${myParam}`,
+                mobileFallback = `https://${baseString}${myParam}`,
+                app = `vnd.youtube://${baseString}${myParam}`;
 
                 if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                     window.location = app;
@@ -27,7 +28,7 @@
                     window.removeEventListener('pagehide', killPopup);
                 }
 
-                window.removeEventListener('pagehide', killPopup);
+                window.addEventListener('pagehide', killPopup);
 
             };
         </script>
