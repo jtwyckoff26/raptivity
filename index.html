@@ -27,7 +27,7 @@
                     window.removeEventListener('pagehide', killPopup);
                 }
 
-                window.addEventListener('pagehide', killPopup);
+                window.removeEventListener('pagehide', killPopup);
 
             };
         </script>
