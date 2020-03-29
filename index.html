@@ -9,7 +9,7 @@
             window.onload = function() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const myParam = urlParams.get('video') ? urlParams.get('video') : "";
-                const baseString = myParam === "" ? "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw" : "www.youtube.com/watch?v=";
+                const baseString = myParam === null ? "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw" : "www.youtube.com/watch?v=";
 
                 var desktopFallback = `https://${baseString}${myParam}`,
                 mobileFallback = `https://${baseString}${myParam}`,
